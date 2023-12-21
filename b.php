@@ -5,7 +5,7 @@ $id = $_POST['id'];
 $attivo = $_POST['attivo'];
 $eccezione = $_POST['eccezione'];
 
-$sql = "UPDATE rilevamenti SET controllato=$attivo, eccezione=$eccezione WHERE id=$id";
+$sql = "UPDATE rilevamenti SET controllato=$attivo, eccezione='$eccezione' WHERE id=$id";
 
 if (!mysqli_query($conn,$sql))
 {

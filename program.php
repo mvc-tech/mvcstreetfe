@@ -28,22 +28,27 @@ include_once 'res/conn.php';
             <td><?=$res['id_macchina']?></td>
             <td><?=$res['zona']?></td>
             <td><?php foreach(fetchEccezioni($conn) as $ecc):?>
-                <span class="nopadding"><a onclick="hideElement(<?=$res['id']?>)"><img <?php 
+                <span class="nopadding"><a><img <?php 
+                $residente = ", 'residente'";
+                $disabile = ", 'disabile'";
+                $ibrida = ", 'ibrida'";
+                $abbonato = ", 'abbonato'";
+                $biglietto = ", 'biglietto'";
                     switch($ecc){
                         case 'residente':
-                            echo 'class="bottone iconcina" id="residente" onclick="hideElement(' . $res['id'] .',"residente"'. '" src="assets/resident.png"';
+                            echo 'class="bottone iconcina" id="residente" onclick="hideElement('.$res['id'].$residente.')" src="assets/resident.png"';
                             break;
                         case 'disabile':
-                            echo 'class="bottone iconcina" id="disabile" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/disabled.png"';
+                            echo 'class="bottone iconcina" id="disabile" onclick="hideElement(' . $res['id'].$disabile.')" src="assets/disabled.png"';
                             break;
                         case 'ibrida':
-                            echo 'class="bottone iconcina" id="ibrida" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/hybrid.png"';
+                            echo 'class="bottone iconcina" id="ibrida" onclick="hideElement(' . $res['id'].$ibrida.')" src="assets/hybrid.png"';
                             break;
                         case 'abbonato':
-                            echo 'class="bottone iconcina" id="abbonato" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/subscription.png"';
+                            echo 'class="bottone iconcina" id="abbonato" onclick="hideElement(' . $res['id'].$abbonato.')" src="assets/subscription.png"';
                             break;
                         case 'biglietto':
-                            echo 'class="bottone iconcina" id="biglietto" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/ticket.png"';
+                            echo 'class="bottone iconcina" id="biglietto" onclick="hideElement(' . $res['id'].$biglietto.')" src="assets/ticket.png"';
                     }
                     ?>
                 /></a></span>
@@ -59,8 +64,8 @@ include_once 'res/conn.php';
 
     function hideElement(element, eccezione){
         var riga = document.getElementById(element);
-        var eccezione = this.eccezione;
         var atti = 1;
+        console.log(eccezione);
         //var dati = {'id':element, 'attivo':atti};
         $.ajax({
             type: "POST",
