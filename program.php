@@ -61,8 +61,26 @@ include_once 'res/conn.php';
         var riga = document.getElementById(element);
         riga.style.display = 'none';
         console.log(element);
+        /*dati = {'id' = element, 'attivo' = '1'};
+
+        $.ajax({
+            type="POST",
+            url="b.php",
+            data=dati,
+            dataType:"json",
+            success: function(data)
+            {
+                if(!data.error)
+                {
+                    
+                }
+            }
+        })*/
+
+
+
     }
 
-    
+
 
 </script>
