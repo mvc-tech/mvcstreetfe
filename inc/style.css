@@ -35,13 +35,41 @@
 .iconcina {
     max-height: 30px;
     max-width: 30px;
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .tabella-rilievi {
-    max-width: 750px;
+    max-width: 100%;
 }
 
 .bottone {
-    /*bottone*/
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.bottone:active {
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75) inset;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75) inset;
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75) inset;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+
+th {
+    text-align: center!important;
+    vertical-align: middle;
+}
+
+.nopadding {
+    padding:0!important;
+    margin:0!important;
+}
+
+.big-spacer {
+    height:30;
+    width:30;
 }
