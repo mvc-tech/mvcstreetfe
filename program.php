@@ -21,7 +21,7 @@ include_once 'res/conn.php';
         </thead>
         <tbody>
         <?php foreach(fetchRilevamenti($conn) as $res):?>
-        <tr id="<?=$res['id']?>">
+        <tr class="tr" id="<?=$res['id']?>">
             <td><?=$res['id']?></td>
             <td><?=$res['targa']?></td>
             <td><?=$res['dataora']?></td>
@@ -31,23 +31,23 @@ include_once 'res/conn.php';
                 <span class="nopadding"><a onclick="hideElement(<?=$res['id']?>)"><img <?php 
                     switch($ecc){
                         case 'residente':
-                            echo 'class="bottone iconcina" id="residente" src="assets/resident.png"';
+                            echo 'class="bottone iconcina" id="residente" onclick="hideElement(' . $res['id'] .',"residente"'. '" src="assets/resident.png"';
                             break;
                         case 'disabile':
-                            echo 'class="bottone iconcina" id="disabile" src="assets/disabled.png"';
+                            echo 'class="bottone iconcina" id="disabile" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/disabled.png"';
                             break;
                         case 'ibrida':
-                            echo 'class="bottone iconcina" id="ibrida" src="assets/hybrid.png"';
+                            echo 'class="bottone iconcina" id="ibrida" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/hybrid.png"';
                             break;
                         case 'abbonato':
-                            echo 'class="bottone iconcina" id="abbonato" src="assets/subscription.png"';
+                            echo 'class="bottone iconcina" id="abbonato" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/subscription.png"';
                             break;
                         case 'biglietto':
-                            echo 'class="bottone iconcina" id="biglietto" src="assets/ticket.png"';
+                            echo 'class="bottone iconcina" id="biglietto" onclick="hideElement(' . $res['id'] .',"residente"'.  ')" src="assets/ticket.png"';
                     }
                     ?>
                 /></a></span>
-            <?php endforeach?></td>
+            <?php endforeach;?></td>
         </tr>
         <?php endforeach;?>
         </tbody>
@@ -57,29 +57,50 @@ include_once 'res/conn.php';
 
 <script>
 
-    function hideElement(element){
+    function hideElement(element, eccezione){
         var riga = document.getElementById(element);
-        riga.style.display = 'none';
-        console.log(element);
-        /*dati = {'id' = element, 'attivo' = '1'};
-
+        var eccezione = this.eccezione;
+        var atti = 1;
+        //var dati = {'id':element, 'attivo':atti};
         $.ajax({
-            type="POST",
-            url="b.php",
-            data=dati,
-            dataType:"json",
-            success: function(data)
-            {
-                if(!data.error)
-                {
-                    
-                }
+            type: "POST",
+            data: {'id':element, 'attivo':atti, 'eccezione':eccezione},
+            url: "b.php",
+            success: function(element, atti) {
+                riga.style.display = 'none';
+                console.log(element);
             }
-        })*/
-
-
-
+        })
     }
+    </script>
+
+    <script>
+
+    $(document).ready(function() {
+            // Funzione per aggiornare la tabella
+
+
+            function updateTable() {
+                tr = document.getElementsByClassName('tr');
+
+                num= tr.length;
+
+                $.ajax({
+                    url: 'a.php', 
+                    type: 'POST',
+                    success: function(data) {
+                        if(data == num)
+                        {
+                            console.log('nulla')
+                        }else if(data > num){
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        // Aggiorna la tabella ogni 5 secondi (modificabile a seconda delle esigenze)
+        setInterval(updateTable, 10000);
+    });
 
 
 

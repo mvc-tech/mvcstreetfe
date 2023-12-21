@@ -9,7 +9,7 @@ include_once "func/fetchdata.php";
         <div class='container-img'>
             <img src='assets/streetcontrol.jpg' class='image-home'>
         </div>
-        <form class='container-flex' method='POST' action='visual.php'>
+        <form class='container-flex' method='POST' action='program.php'>
             <label>Scegli la zona:</label>
             <select class='select' name='zona'>
                 <option value=''>Seleziona</option>

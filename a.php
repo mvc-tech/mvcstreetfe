@@ -2,7 +2,7 @@
 // include_once "res/header.php";
 include_once "res/conn.php";
 
-    $query = "SELECT * FROM rilevamenti where zona='A1'";
+    $query = "SELECT * FROM rilevamenti";
 
     $result = $conn -> query($query);
 

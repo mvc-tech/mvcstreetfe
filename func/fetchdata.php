@@ -46,7 +46,7 @@ function fetchTable($conn,$zona){
 }
 
 function fetchRilevamenti($conn){
-    $query = "SELECT * FROM rilevamenti";
+    $query = "SELECT * FROM rilevamenti WHERE controllato=0";
 
     $result = $conn -> query($query);
 
