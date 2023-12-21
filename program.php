@@ -94,12 +94,12 @@ include_once 'res/conn.php';
                     url: 'a.php', 
                     type: 'POST',
                     success: function(data) {
-                        if(data == num)
+                        /*if(data == num)
                         {
-                            console.log('nulla')
-                        }else if(data > num){
+                            */console.log('nulla')/*
+                        }else if(data > num){*/
                             location.reload();
-                        }
+                        //}
                     }
                 });
             }
