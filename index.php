@@ -7,7 +7,7 @@ include_once "func/fetchdata.php";
 <div class='container-fluid'>
     <div class='container-flex'>
         <div class='container-img'>
-            <img src='assets/streetcontrol.jpg'>
+            <img src='assets/streetcontrol.jpg' class='image-home'>
         </div>
         <form class='container-flex' method='POST' action='visual.php'>
             <label>Scegli la zona:</label>

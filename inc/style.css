@@ -32,6 +32,7 @@
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
+<<<<<<< HEAD
 .iconcina {
     max-height: 30px;
     max-width: 30px;
@@ -72,4 +73,9 @@ th {
 .big-spacer {
     height:30;
     width:30;
+=======
+.image-home{
+    width: 150px;
+    height: 150px;
+>>>>>>> 07d4bccf2ac152f9943d46c4532702f27bfebc3f
 }
