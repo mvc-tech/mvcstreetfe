@@ -1,4 +1,5 @@
 <?php
+
 include_once "res/header.php";
 include_once "res/conn.php";
 include_once "func/fetchdata.php";
